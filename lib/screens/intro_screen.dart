@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'quote_screen.dart';
 import 'quotes_list_screen.dart';
+import 'quote_screen_dio.dart';
+import 'quotes_list_screen_dio.dart';
 
 class IntroScreen extends StatelessWidget {
   const IntroScreen({Key? key}) : super(key: key);
@@ -56,11 +58,20 @@ class IntroScreen extends StatelessWidget {
                   style: TextStyle(fontSize: 16, color: Colors.white70),
                   textAlign: TextAlign.center,
                 ),
-                const SizedBox(height: 60),
+                const SizedBox(height: 40),
 
-                const SizedBox(height: 60),
+                // Section Title - HTTP Implementation
+                const Text(
+                  'HTTP Package',
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: Colors.white70,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: 12),
 
-                // Navigation Buttons
+                // Navigation Buttons - HTTP
                 ElevatedButton(
                   onPressed: () {
                     Navigator.of(context).push(
@@ -81,11 +92,11 @@ class IntroScreen extends StatelessWidget {
                     ),
                   ),
                   child: const Text(
-                    'Get Random Quote',
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    'Random Quote (HTTP)',
+                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
                   ),
                 ),
-                const SizedBox(height: 16),
+                const SizedBox(height: 12),
                 OutlinedButton(
                   onPressed: () {
                     Navigator.of(context).push(
@@ -106,8 +117,74 @@ class IntroScreen extends StatelessWidget {
                     ),
                   ),
                   child: const Text(
-                    'View All Quotes',
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    'All Quotes (HTTP)',
+                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                  ),
+                ),
+
+                const SizedBox(height: 30),
+                const Divider(color: Colors.white30, thickness: 1),
+                const SizedBox(height: 20),
+
+                // Section Title - Dio/Retrofit Implementation
+                const Text(
+                  'Dio + Retrofit',
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: Colors.white70,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: 12),
+
+                // Navigation Buttons - Dio/Retrofit
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const QuoteScreenDio(),
+                      ),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.teal,
+                    foregroundColor: Colors.white,
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 40,
+                      vertical: 16,
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                  ),
+                  child: const Text(
+                    'Random Quote (Dio)',
+                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                  ),
+                ),
+                const SizedBox(height: 12),
+                OutlinedButton(
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const QuotesListScreenDio(),
+                      ),
+                    );
+                  },
+                  style: OutlinedButton.styleFrom(
+                    foregroundColor: Colors.teal.shade100,
+                    side: BorderSide(color: Colors.teal.shade100, width: 2),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 40,
+                      vertical: 16,
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                  ),
+                  child: const Text(
+                    'All Quotes (Dio)',
+                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
                   ),
                 ),
               ],
